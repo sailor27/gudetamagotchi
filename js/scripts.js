@@ -13,6 +13,14 @@ export class Pet {
   hunger(){
     setInterval(() => {
       this.hungerLevel++;
-    }, 7000);
+    }, 1000);
+  }
+
+  feed(){
+    this.hungerLevel -= 5;
+  }
+
+  poop(){
+    this.hungerLevel += 10;
   }
 };

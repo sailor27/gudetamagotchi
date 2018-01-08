@@ -16,9 +16,15 @@ describe('Pet', function(){
     expect(gudetama.name).toEqual("gudetama");
   });
 
-  it('should have a hunger level of 1 after 7000 milliseconds', function(){
+  it('should have a hunger level of 7 after 7000 milliseconds', function(){
     jasmine.clock().tick(7001);
-    expect(gudetama.hungerLevel).toEqual(1);
+    expect(gudetama.hungerLevel).toEqual(7);
+  });
+
+  it('should have a hunger level of -5 after fed', function(){
+    gudetama.hungerLevel = 0;
+    gudetama.feed();
+    expect(gudetama.hungerLevel).toEqual(-5);
   });
 
 
