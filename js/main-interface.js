@@ -5,14 +5,18 @@ $(document).ready(function(){
     gudetama.name = "Gudetama";
     gudetama.introduction();
     console.log(gudetama.name);
+    gudetama.hunger();
+    gudetama.checkUp();
 
     $("#food-form").submit(function(event){
       event.preventDefault();
       let food = $("#food").val();
-      console.log(gudetama.hungerLevel);
       gudetama.feed();
       console.log(gudetama.hungerLevel);
       $("#display").text("You fed " + gudetama.name + " " + food + "!");
     });
 
+    $("#status-button").click(function(event){
+      console.log(gudetama.hungerLevel);
+    });
 });

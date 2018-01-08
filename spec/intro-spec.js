@@ -10,6 +10,7 @@ describe('Pet', function(){
 
   afterEach(function(){
     jasmine.clock().uninstall();
+    gudetama.hungerLevel = 0;
   });
 
   it('should have an introduction that says the pet name', function(){
@@ -22,10 +23,14 @@ describe('Pet', function(){
   });
 
   it('should have a hunger level of -5 after fed', function(){
-    gudetama.hungerLevel = 0;
     gudetama.feed();
     expect(gudetama.hungerLevel).toEqual(-5);
   });
 
+  it('should die when hunger level reaches 100', function(){
+    gudetama.hungerLevel = 100;
+    gudetama.checkUp();
+    expect(gudetama.status).toEqual("DEAD");
+  });
 
 });
