@@ -1,7 +1,7 @@
 export class Pet {
-  constructor(name, introduction){
+  constructor(name){
     this.name = name;
-    this.introduction();
+    this.hungerLevel = 0;
   }
   introduction(){
     let sayName = () => {
@@ -9,18 +9,10 @@ export class Pet {
   }
   return sayName()
   };
-};
 
-// let gudetama = new Pet;
-//   gudetama.name = "Gudetama";
-//
-//   gudetama.introduction = function(){
-//     console.log("Name in the outer function: " + this.name);
-//     let sayName = () => {
-//       console.log("Name in the inner function: " + this.name);
-//       return `My name is ${this.name}`
-//     }
-//     return sayName()
-//   }
-//   gudetama.introduction();
-//
+  hunger(){
+    setInterval(() => {
+      this.hungerLevel++;
+    }, 7000);
+  }
+};

@@ -3,10 +3,23 @@ import { Pet } from './../js/scripts.js';
 describe('Pet', function(){
   let gudetama = new Pet("gudetama");
 
+  beforeEach(function(){
+    jasmine.clock().install();
+    gudetama.hunger();
+  });
+
+  afterEach(function(){
+    jasmine.clock().uninstall();
+  });
+
   it('should have an introduction that says the pet name', function(){
     expect(gudetama.name).toEqual("gudetama");
   });
-  // beforeEach(function(){
-  //   jasmine.clock().install();
-  // })
+
+  it('should have a hunger level of 1 after 7000 milliseconds', function(){
+    jasmine.clock().tick(7001);
+    expect(gudetama.hungerLevel).toEqual(1);
+  });
+
+
 });
