@@ -33,4 +33,9 @@ describe('Pet', function(){
     expect(gudetama.status).toEqual("DEAD");
   });
 
+  it('should gain 10 hunger when it poops', function(){
+    jasmine.clock().tick(10000);
+    expect(gudetama.hungerLevel).toEqual(gudetama.hungerLevel >= 10);
+  });
+
 });

@@ -5,8 +5,7 @@ $(document).ready(function(){
     gudetama.name = "Gudetama";
     gudetama.introduction();
     console.log(gudetama.name);
-    gudetama.hunger();
-    gudetama.checkUp();
+    gudetama.vitals();
 
     $("#food-form").submit(function(event){
       event.preventDefault();
