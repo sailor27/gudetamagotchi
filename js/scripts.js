@@ -12,7 +12,10 @@ export class Pet {
   };
 
   checkUp(){
-    if (this.hungerLevel >= 100){
+    if (this.hungerLevel === 0){
+      this.status = "ALIVE"
+      this.hunger();
+    } else if(this.hungerLevel >= 100){
       this.status = "DEAD";
       return this.status;
     } else {
@@ -22,9 +25,15 @@ export class Pet {
   }
 
   hunger(){
-    setInterval(() => {
+    var timer = setInterval(() => {
       this.hungerLevel++;
+
       this.checkUp();
+
+      if (this.status === "DEAD"){
+        clearInterval(timer);
+      }
+
       console.log(this.status);
       console.log("Hunger Level: " + this.hungerLevel);
     }, 1000);
@@ -37,8 +46,14 @@ export class Pet {
 
   poop(){
     let poopTime = (Math.random() * 10000);
-    setInterval(() => {
+    var poopTimer = setInterval(() => {
       this.hungerLevel += 10;
+
+      this.checkUp();
+
+      if (this.status === "DEAD"){
+        clearInterval(poopTimer);
+      }
       console.log("POOP");
     }, poopTime);
   }

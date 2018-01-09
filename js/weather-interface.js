@@ -6,6 +6,7 @@ $(document).ready(function() {
     $('#location').val("");
     $.ajax({
       url: `http://api.openweathermap.org/data/2.5/weather?id=${city}&appid=0ec0eb65eca6b7d9c1adb390b453ea7c`,
+      // url: `http://api.openweathermap.org/data/2.5/weather?id=5746545&appid=0ec0eb65eca6b7d9c1adb390b453ea7c`,
       type: 'GET',
       data: {
         format: 'json'

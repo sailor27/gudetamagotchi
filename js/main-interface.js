@@ -1,23 +1,30 @@
 import { Pet } from './../js/scripts.js';
 
 $(document).ready(function(){
-    let gudetama = new Pet;
-    gudetama.name = "Gudetama";
-    gudetama.introduction();
-    console.log(gudetama.name);
-    gudetama.hunger();
-    gudetama.checkUp();
+  let gudetama = new Pet;
+  gudetama.name = "Gudetama";
+  gudetama.introduction();
+  gudetama.checkUp();
 
-    $("#food-form").submit(function(event){
-      event.preventDefault();
-      let food = $("#food").val();
-      gudetama.feed();
-      gudetama.poop();
-      console.log("You fed him!" + gudetama.hungerLevel);
-      $("#display").text("You fed " + gudetama.name + " " + food + "!");
-    });
+  setInterval(() => {
+    $("#status").text(gudetama.status);
+  }, 1000);
 
-    $("#status-button").click(function(event){
-      console.log(gudetama.hungerLevel);
-    });
+  // if (gudetama.status === "ALIVE"){
+  //   $("#status").text("ALIVE")
+  // } else {
+  //   $("#status").text("DEAD")
+  // }
+
+  $("#food-form").submit(function(event){
+    event.preventDefault();
+    let food = $("#food").val();
+    gudetama.feed();
+    gudetama.poop();
+    $("#feed-display").text("You fed " + gudetama.name + " " + food + "!");
+  });
+
+  $("#status-button").click(function(event){
+    console.log(gudetama.hungerLevel);
+  });
 });

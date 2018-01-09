@@ -22,9 +22,9 @@ describe('Pet', function(){
     expect(gudetama.hungerLevel).toEqual(7);
   });
 
-  it('should have a hunger level of -5 after fed', function(){
+  it('should have a hunger level of -20 after fed', function(){
     gudetama.feed();
-    expect(gudetama.hungerLevel).toEqual(-5);
+    expect(gudetama.hungerLevel).toEqual(-20);
   });
 
   it('should die when hunger level reaches 100', function(){
@@ -34,8 +34,16 @@ describe('Pet', function(){
   });
 
   it('should gain 10 hunger when it poops', function(){
-    jasmine.clock().tick(10000);
-    expect(gudetama.hungerLevel).toEqual(gudetama.hungerLevel >= 10);
+    gudetama.feed();
+    gudetama.poop();
+    jasmine.clock().tick(30000);
+    expect(gudetama.hungerLevel).toBeGreaterThan(10);
   });
+
+  it('should stop getting hungry and pooping when status is dead', function(){
+    gudetama.status = "DEAD";
+    expect(gudetama.hungerLevel).toBeLessThan(110);
+  });
+
 
 });
