@@ -5,13 +5,15 @@ $(document).ready(function(){
     gudetama.name = "Gudetama";
     gudetama.introduction();
     console.log(gudetama.name);
-    gudetama.vitals();
+    gudetama.hunger();
+    gudetama.checkUp();
 
     $("#food-form").submit(function(event){
       event.preventDefault();
       let food = $("#food").val();
       gudetama.feed();
-      console.log(gudetama.hungerLevel);
+      gudetama.poop();
+      console.log("You fed him!" + gudetama.hungerLevel);
       $("#display").text("You fed " + gudetama.name + " " + food + "!");
     });
 

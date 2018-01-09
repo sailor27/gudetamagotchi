@@ -32,7 +32,7 @@ export class Pet {
   // };
 
   feed(){
-    this.hungerLevel -= 5;
+    this.hungerLevel -= 20;
   }
 
   poop(){
@@ -43,16 +43,16 @@ export class Pet {
     }, poopTime);
   }
 
-  vitals(){
-    if (this.status === "DEAD") {
-    console.log("SUPER DED");
-    // $("#status").text("DEAD DEAD DEAD");
-  } else {
-    this.hunger();
-    this.checkUp();
-    this.poop();
-  }
-}
+//   vitals(){
+//     if (this.status === "DEAD") {
+//     console.log("SUPER DED");
+//     // $("#status").text("DEAD DEAD DEAD");
+//   } else {
+//     this.hunger();
+//     this.checkUp();
+//     this.poop();
+//   }
+// }
 
 };
 // function checkIfDead() {

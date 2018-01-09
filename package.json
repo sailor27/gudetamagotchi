@@ -36,5 +36,13 @@
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.9.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenjha/gudetamagotchi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lenjha/gudetamagotchi/issues"
+  },
+  "homepage": "https://github.com/lenjha/gudetamagotchi#readme"
 }
