@@ -52,28 +52,10 @@ export class Pet {
       this.checkUp();
 
       if (this.status === "DEAD"){
+        console.log("yay i stopped pooping");
         clearInterval(poopTimer);
       }
       console.log("POOP");
     }, poopTime);
   }
-
-//   vitals(){
-//     if (this.status === "DEAD") {
-//     console.log("SUPER DED");
-//     // $("#status").text("DEAD DEAD DEAD");
-//   } else {
-//     this.hunger();
-//     this.checkUp();
-//     this.poop();
-//   }
-// }
-
 };
-// function checkIfDead() {
-//   if (Pet.hungerLevel === 10){
-//     console.log("DEAD");
-//   } else {
-//     console.log("NOT DEAD");
-//   }
-// };

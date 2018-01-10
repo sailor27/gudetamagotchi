@@ -14,17 +14,27 @@
       </div>
       <div id="status">
       </div>
-      <div id="feed-display">
+      <div>
+        <ul id="feed-display">
+
+        </ul>
       </div>
       <form id="food-form">
         <input type="text" id="food" placeholder="Feed gudetamagotchi!" value="">
         <button type="submit" name="button" class="btn" id="feed-button">FEED HIM</button>
       </form>
-      <button type="button" name="button" class="btn" id="status-button">check hunger</button>
+      <div class="gif-zone">
+        
+      </div>
       <div class="weather-report">
         <h1>check the weather!</h1>
-        <label for="location">Enter a location, using a city code (ex. 5746545):</label>
-        <input id="location" type="text">
+        <label for="location">Select a Location:</label>
+        <select id="location" type="text">
+          <option value="5746545"><span class="span" value="Portland, Oregon, USA">Portland, Oregon, USA</span></option>
+          <option value="1835847" name="Seoul, South Korea">Seoul, South Korea</option>
+          <option value="7287650" name="Zürich, Switzerland">Zürich, Switzerland</option>
+          <option value="3094480" name="Krzewina, Poland">Krzewina, Poland</option>
+        </select>
         <button class="btn-success" id="weatherLocation">Get Current Humidity!</button>
         <div id="errors"></div>
         <div class="showHumidity"></div>

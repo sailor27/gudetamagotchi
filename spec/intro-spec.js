@@ -44,6 +44,4 @@ describe('Pet', function(){
     gudetama.status = "DEAD";
     expect(gudetama.hungerLevel).toBeLessThan(110);
   });
-
-
 });

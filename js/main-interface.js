@@ -8,23 +8,19 @@ $(document).ready(function(){
 
   setInterval(() => {
     $("#status").text(gudetama.status);
+    $("#hunger").text("Hunger level: " + gudetama.hungerLevel);
   }, 1000);
 
-  // if (gudetama.status === "ALIVE"){
-  //   $("#status").text("ALIVE")
-  // } else {
-  //   $("#status").text("DEAD")
-  // }
+  if (gudetama.status === "DEAD"){
+    $("#food-display").hide();
+  };
 
   $("#food-form").submit(function(event){
     event.preventDefault();
     let food = $("#food").val();
     gudetama.feed();
     gudetama.poop();
-    $("#feed-display").text("You fed " + gudetama.name + " " + food + "!");
+    $("#feed-display").append("<li>" + "You fed " + gudetama.name + " " + food + "!" + "</li>");
   });
 
-  $("#status-button").click(function(event){
-    console.log(gudetama.hungerLevel);
-  });
 });
