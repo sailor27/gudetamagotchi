@@ -1,19 +1,13 @@
-var petKey = require('./../.env').petKey;
-
+var apiKey = require('./../.env').apiKey;
+import { getData } from './../js/scripts.js';
 $(document).ready(function() {
-    $.ajax({
-      url: `http://api.giphy.com/v1/gifs/search?q=gudetama&api_key=0ec0eb65eca6b7d9c1adb390b453ea7c&limit=5`,
-      type: 'GET',
-      data: {
-        format: 'json'
-      },
-      success: function(response) {
-        alert(`SUCCESS - GIPHY`);
-        // $('gif-zone').
-      },
-      error: function() {
-        alert(`ERROR NO GIPHY`);
-      }
+  $('#button').click(function() {
+    let gif = $('#food').val();
+    $('#food').val("");
+    getData(name, function(response) {
+      $('#food-output').append(`<img src="${response.data.url}">`);
+    }, function() {
+      $('#error-output').text("There was an error processing your request. Please try again.");
     });
-
+  });
 });
