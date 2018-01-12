@@ -1,3 +1,22 @@
+export function getData(search, arg1, arg2){
+  // var apiKey = require('./../.env').apiKey;
+  $.ajax({
+    url: `http://api.giphy.com/v1/gifs/search?q=gudetama&api_key=BfYSecfMXlpv1i9L4XB4HChFSR8T59jo&limit=5`,
+    type: 'GET',
+    data: {
+      format: 'json'
+    },
+    success: function(response) {
+      console.log("SUCCCESS");
+      arg1(response);
+    },
+    error: function() {
+      arg2();
+    }
+  });
+};
+
+
 export class Pet {
   constructor(name){
     this.name = name;
@@ -38,12 +57,12 @@ export class Pet {
       console.log("Hunger Level: " + this.hungerLevel);
     }, 1000);
   }
-  // };
+
 
   feed(){
     this.hungerLevel -= 20;
   }
-
+//
   poop(){
     let poopTime = (Math.random() * 10000);
     var poopTimer = setInterval(() => {
@@ -59,21 +78,3 @@ export class Pet {
     }, poopTime);
   }
 };
-
-export function getData(search, arg1, arg2){
-  $.ajax({
-    url: `http://api.giphy.com/v1/gifs/search?q=gudetama&api_key=BfYSecfMXlpv1i9L4XB4HChFSR8T59jo&limit=5`,
-    type: 'GET',
-    data: {
-      format: 'json'
-    },
-    success: function(response) {
-      arg1(response);
-      alert(`SUCCESS - GIPHY`);
-    },
-    error: function() {
-      arg2();
-      alert(`ERROR NO GIPHY`);
-    }
-  });
-}
